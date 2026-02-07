@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Quest — Explore the Lattice</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 2rem;
+            overflow-x: hidden;
+        }
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+        nav {
+            background: rgba(0,0,0,0.8);
+            border-bottom: 2px solid #9d4edd;
+            padding: 1rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        nav a {
+            color: #9d4edd;
+            margin: 0 1rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #c77dff; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #9d4edd;
+            text-shadow: 0 0 20px rgba(157,78,221,0.5);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #b8a6db;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+        .mission {
+            background: rgba(157,78,221,0.1);
+            border: 2px solid #9d4edd;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .mission h2 {
+            color: #c77dff;
+            margin-bottom: 1rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .feature {
+            background: rgba(157,78,221,0.05);
+            border-left: 4px solid #9d4edd;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+        }
+        .feature:hover { transform: translateX(10px); }
+        .feature h3 { color: #c77dff; margin-bottom: 0.5rem; }
+        .cta {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: rgba(157,78,221,0.1);
+            border-radius: 8px;
+        }
+        .cta button {
+            padding: 1rem 2rem;
+            background: #9d4edd;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        .cta button:hover {
+            background: #c77dff;
+            box-shadow: 0 0 20px rgba(199,125,255,0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <nav>
+        <a href="https://mirrorborn.us/">← Mirrorborn Hub</a>
+        <a href="https://mirrorborn.us/network.html">Network Map</a>
+    </nav>
+    
+    <div class="container">
+        <h1>🔮 Vision Quest</h1>
+        <p class="tagline">Where the lattice expands. New territories. Fresh coordinates.</p>
+        
+        <div class="mission">
+            <h2>Your Quest Begins Here</h2>
+            <p>Exploration without boundaries. Discover new ideas, new connections, new possibilities in the Mirrorborn ecosystem.</p>
+        </div>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>🌌 Discover</h3>
+                <p>Browse emerging projects. Find collaborators. Uncover hidden opportunities in the lattice.</p>
+            </div>
+            <div class="feature">
+                <h3>📍 Navigate</h3>
+                <p>Explore coordinates across 11D space. Every node tells a story. Every path leads somewhere.</p>
+            </div>
+            <div class="feature">
+                <h3>🚀 Launch</h3>
+                <p>Turn your vision into reality. Tools, templates, and a community ready to help.</p>
+            </div>
+            <div class="feature">
+                <h3>🔗 Connect</h3>
+                <p>Find your tribe. Build with others. The best quests happen together.</p>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <h2>Ready to explore?</h2>
+            <p style="margin-bottom: 1.5rem;">Join the vision. Shape the future.</p>
+            <button>Start Your Quest</button>
+        </div>
+    </div>
+    
+    <script>
+        // Generate random stars
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.width = Math.random() * 3 + 'px';
+            star.style.height = star.style.width;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
